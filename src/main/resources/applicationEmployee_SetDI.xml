@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employee" class="com.daytwo.exercise_one_xml.EmployeeSetterDI">
+        <property name="name" value="John Doe" />
+        <property name="employeeId" value="123" />
+        <property name="role" value="Developer" />
+
+        <property name="dateOfJoining">
+            <bean class="com.daytwo.exercise_one_xml.DateOfJoiningSetterDI">
+                <property name="dateOfJoining" value="20231123">
+<!--                    <value>#{ T(java.time.LocalDate).now().getDayOfMonth() }</value>-->
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>
